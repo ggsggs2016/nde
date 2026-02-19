@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mieux nous connaître - Collège de France</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #2872ba;
+      --primary-dark: #1e5a94;
+      --secondary: #3f608a;
+      --text: #1a1c1f;
+      --text-light: #555;
+      --bg-light: #f8f9fa;
+      --border: #e0e0e0;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Lato", sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: var(--text);
+      background: #fff;
+    }
+
+    /* HEADER */
+header {
+  background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), 
+                    url('homepage_background.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 320px;
+  position: relative; /* IMPORTANT */
+  color: #fff;
+
+  display: flex;
+  align-items: center;      /* centre vertical */
+  justify-content: center;  /* centre horizontal */
+}
+
+/* Contenu centré uniquement */
+.header-content {
+  width: 100%;
+  text-align: center;
+}
+
+/* Logo ancré au header */
+.header-logo {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+
+  height: 130px;   /* plus grand */
+  width: auto;
+
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+  z-index: 10;
+}
+
+/* Titre parfaitement centré */
+header h1 {
+  font-size: 3.2rem;
+  margin: 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+    header .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      font-weight: 400;
+    }
+
+    /* MAIN CONTAINER */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+   /* INTRO SECTION */
+.intro-section {
+  text-align: left;              /* ← alignement à gauche */
+  max-width: 900px;              /* un peu plus large */
+  margin: 0 auto 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.intro-section h2 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  text-align: center;              /* important */
+}
+
+.intro-section p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  text-align: left;              /* important */
+}
+
+
+    /* LIBRARIES GRID */
+    .libraries-section {
+      margin-bottom: 4rem;
+    }
+
+    .libraries-section > h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .libraries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .library-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 12px var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 4px solid var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .library-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+    }
+
+   .library-card-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(40, 114, 186, 0.08);  /* bleu très léger */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  font-size: 1.3rem;
+  color: var(--primary);  /* icône en bleu */
+}
+
+
+    .library-card-content {
+      flex: 1;
+    }
+
+    .library-card-content h3 {
+      font-size: 1.1rem;
+      margin: 0 0 0.5rem 0;
+      color: var(--text);
+    }
+
+    .library-card-content a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.95rem;
+    }
+
+    .library-card-content a:hover {
+      text-decoration: underline;
+    }
+
+    /* DOCUMENTS SECTION */
+    .documents-section {
+      background: var(--bg-light);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .documents-section h2 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .documents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .document-item {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .document-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .document-item-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+
+    .document-item-content h3 {
+      font-size: 1.05rem;
+      margin: 0 0 0.5rem 0;
+      color: var(--text);
+    }
+
+    .document-item-content a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.95rem;
+    }
+
+    .document-item-content a:hover {
+      text-decoration: underline;
+    }
+
+    /* CATEGORIES */
+    .category-section {
+      margin-bottom: 3rem;
+    }
+
+.category-header {
+  background: #f5f4ef;              /* nouveau fond */
+  color: var(--primary);            /* texte bleu */
+  padding: 1.2rem 1.5rem;
+  border-radius: 8px;
+  border-left: 5px solid var(--primary);  /* touche institutionnelle */
+}
+
+
+    .category-header h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #2c2c2c;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 0.8rem;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    footer a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    footer p {
+      margin: 0.8rem 0;
+    }
+
+    footer .footer-links {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .libraries-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+      
+      .documents-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        min-height: 250px;
+        padding: 1rem;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+        padding: 0 1rem;
+      }
+
+      .header-logo {
+        height: 90px;
+        top: 15px;
+        left: 15px;
+      }
+
+      main {
+        padding: 2rem 1rem;
+      }
+
+      .intro-section {
+        margin: 0 auto 2rem;
+        padding-bottom: 1.5rem;
+      }
+
+      .intro-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .intro-section p {
+        font-size: 1rem;
+      }
+
+      .libraries-section > h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .libraries-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .library-card {
+        padding: 1.2rem;
+      }
+
+      .library-card-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+      }
+
+      .library-card-content h3 {
+        font-size: 1rem;
+      }
+
+      .category-header {
+        padding: 1rem;
+      }
+
+      .category-header h3 {
+        font-size: 1.1rem;
+      }
+
+      .category-section {
+        margin-bottom: 2rem;
+      }
+
+      .documents-section {
+        padding: 1.5rem;
+      }
+
+      .documents-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .documents-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .document-item {
+        padding: 1.2rem;
+      }
+
+      footer {
+        padding: 1.5rem 1rem;
+      }
+
+      footer .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      footer a {
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        min-height: 200px;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+        padding: 0 0.5rem;
+      }
+
+      .header-logo {
+        height: 70px;
+        top: 10px;
+        left: 10px;
+      }
+
+      main {
+        padding: 1.5rem 0.75rem;
+      }
+
+      .intro-section {
+        padding-bottom: 1rem;
+      }
+
+      .intro-section h2 {
+        font-size: 1.3rem;
+      }
+
+      .intro-section p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .libraries-section {
+        margin-bottom: 2rem;
+      }
+
+      .libraries-section > h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+      }
+
+      .libraries-grid {
+        gap: 0.8rem;
+        margin-bottom: 2rem;
+      }
+
+      .library-card {
+        padding: 1rem;
+        gap: 0.8rem;
+      }
+
+      .library-card-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+
+      .library-card-content h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .library-card-content a {
+        font-size: 0.85rem;
+      }
+
+      .category-header {
+        padding: 0.8rem 1rem;
+      }
+
+      .category-header h3 {
+        font-size: 1rem;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+      }
+
+      .category-header h3 i {
+        font-size: 0.9rem;
+      }
+
+      .category-section {
+        margin-bottom: 1.5rem;
+      }
+
+      .documents-section {
+        padding: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .documents-section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+
+      .documents-grid {
+        gap: 0.8rem;
+      }
+
+      .document-item {
+        padding: 1rem;
+        gap: 0.8rem;
+      }
+
+      .document-item-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+      }
+
+      .document-item-content h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .document-item-content a {
+        font-size: 0.85rem;
+      }
+
+      footer {
+        margin-top: 2rem;
+        padding: 1.2rem 0.75rem;
+      }
+
+      footer p {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Très petits écrans */
+    @media (max-width: 360px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .header-logo {
+        height: 60px;
+      }
+
+      .intro-section h2,
+      .libraries-section > h2,
+      .documents-section h2 {
+        font-size: 1.2rem;
+      }
+
+      .library-card,
+      .document-item {
+        padding: 0.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <img src="library-logo.png" alt="Logo du Collège de France" class="header-logo">
+      <h1>Mieux nous connaître !</h1>
+          </div>
+  </header>
+
+  <main>
+    <!-- INTRO -->
+    <section class="intro-section">
+      <h2>Découvrez notre réseau documentaire</h2>
+      <p>Le Collège de France dispose d'un riche réseau documentaire constitué d'un service d'archives, de douze bibliothèques spécialisées et de missions transverses (PEB, bibliométrie et ressources en ligne, etc.) Il possède également une collection d'objets composée d'instruments scientifiques et d'œuvres d'art. Les bibliothèques et le service d'archives se déploient sur deux sites : 11, place Marcelin-Berthelot pour la bibliothèque patrimoniale, le service des ressources en ligne, bibliométrie et appui à la recherche, et le service des archives ; 52, rue du Cardinal-Lemoine pour les bibliothèques spécialisées en sciences humaines et sociales au sein de l'Institut des Civilisations. Pour les conditions d'accès et d'inscription, consulter les pages de chaque bibliothèque.</p>
+    </section>
+
+    <!-- LIBRARIES SECTION -->
+    <section class="libraries-section">
+      <h2>Bibliothèques, archives, service de conservation et régie des œuvres</h2>
+
+      <!-- Bibliothèque principale -->
+      <div class="category-section">
+        <div class="category-header">
+          <h3><i class="fas fa-landmark"></i> Bibliothèque Patrimoniale</h3>
+        </div>
+        <div class="libraries-grid">
+          <div class="library-card">
+            <div class="library-card-icon">
+              <i class="fas fa-book"></i>
+            </div>
+            <div class="library-card-content">
+              <h3>Bibliothèque patrimoniale</h3>
+              <a href="https://www.college-de-france.fr/fr/bibliotheque-archives/bibliotheque-patrimoniale" target="_blank" rel="noopener noreferrer">
+                En savoir plus <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Études Asiatiques -->
+      <div class="category-section">
+        <div class="category-header">
+          <h3><i class="fas fa-globe-asia"></i> Études Asiatiques</h3>
+        </div>
+        <div class="libraries-grid">
+          <div class="library-card">
+            <div class="library-card-icon">
+              <i class="fas fa-dragon"></i>
+            </div>
+            <div class="library-card-content">
+              <h3>Bibliothèque d'études chinoises</h3>
+              <a href="https://www.college-de-france.fr/fr/bibliotheque-archives/bibliotheque-etudes-chinoises" target="_blank" rel="noopener noreferrer">
+                En savoir plus <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="library-card">
+            <div class="library-card-icon">
+              <i class="fas fa-yin-yang"></i>
+            </div>
+            <div class="library-card-content">
+              <h3>Bibliothèque d'études coréennes</h3>
+              <a href="https://www.college-de-france.fr/fr/bibliotheque-archives/bibliotheque-etudes-coreennes" target="_blank" rel="noopener noreferrer">
+                En savoir plus <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="library-card">
+            <div class="library-card-icon">
+              <i class="fas fa-om"></i>
+            </div>
+            <div class="library-card-content">
+              <h3>Bibliothèque d'études indiennes et centrasiatiques</h3>
+              <a href="https://www.college-de-france.fr/fr/bibliotheque-archives/bibliotheque-etudes-indiennes-et-centrasiatiques" target="_blank" rel="noopener noreferrer">
+                En savoir plus <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="library-card">
+            <div class="library-card-icon">
+              <i class="fas fa-torii-gate"></i>
+            </div>
+            <div class="library-card-content">
+              <h3>Bibliothèque d'études japonaises</h3>
+              <a href="https://www.college-de-france.fr/fr/bibliotheque-archives/bibliotheque-etudes-japonaises" target="_blank" rel="noopener noreferrer">
+                En savoir plus <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="library-card">
+            <div class="library-card-icon">
+              <i class="fas fa-mountain"></i>
+            </div>
+            <div class="library-card-content">
+              <h3>Bibliothèque d'études tibétaines</h3>
+              <a href="https://www.college-de-france.fr/fr/bibliotheque-archives/bibliotheque-etudes-tibetaines" target="_blank" rel="noopener noreferrer">
+                En savoir plus <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="library-card">
+            <div class="library-card-icon">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <div class="library-card-content">
+              <h3>Bibliothèque de la Société asiatique</h3>
+              <a href="https://www.college-de-france.fr/fr/bibliotheque-archives/bibliotheque-de-la-societe-asiatique" target="_blank" rel="noopener noreferrer">
+                En savoir plus <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Études Historiques et Civilisations -->
+      <div class="category-section">
+        <div class="category-header">
+          <h3><i class="fas fa-globe"></i> Études Historiques et Civilisations</h3>
+        </div>
+        <div class="libraries-grid">
+          <div class="library-card">
+            <div class="library-card-icon">
+              <i class="fas fa-th"></i>
+            </div>
+            <div class="library-card-content">
+              <h3>Bibliothèque byzantine</h3>
+              <a href="https://www.college-de-france.fr/fr/bibliotheque-archives/bibliotheque-byzantine" target="_blank" rel="noopener noreferrer">
+                En savoir plus <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="library-card">
+            <div class="library-card-icon">
+              <i class="fas fa-user-friends"></i>
+            </div>
+            <div class="library-card-content">
+              <h3>Bibliothèque Claude Lévi-Strauss</h3>
+              <a href="https://www.college-de-france.fr/fr/bibliotheque-archives/bibliotheque-claude-levi-strauss" target="_blank" rel="noopener noreferrer">
+                En savoir plus <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="library-card">
+            <div class="library-card-icon">
+              <i class="fas fa-ankh"></i>
+            </div>
+            <div class="library-card-content">
+              <h3>Bibliothèque d'égyptologie</h3>
+              <a href="https://www.college-de-france.fr/fr/bibliotheque-archives/bibliotheque-egyptologie" target="_blank" rel="noopener noreferrer">
+                En savoir plus <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="library-card">
+            <div class="library-card-icon">
+              <i class="fas fa-mosque"></i>
+            </div>
+            <div class="library-card-content">
+              <h3>Bibliothèque d'études ottomanes</h3>
+              <a href="https://www.college-de-france.fr/fr/bibliotheque-archives/bibliotheque-etudes-ottomanes" target="_blank" rel="noopener noreferrer">
+                En savoir plus <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="library-card">
+            <div class="library-card-icon">
+              <i class="fas fa-scroll"></i>
+            </div>
+            <div class="library-card-content">
+              <h3>Bibliothèque du Proche-Orient ancien</h3>
+              <a href="https://www.college-de-france.fr/fr/bibliotheque-archives/bibliotheque-du-proche-orient-ancien" target="_blank" rel="noopener noreferrer">
+                En savoir plus <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services et Collections -->
+      <div class="category-section">
+        <div class="category-header">
+          <h3><i class="fas fa-archive"></i> Services des archives et Collections muséales</h3>
+        </div>
+        <div class="libraries-grid">
+          <div class="library-card">
+            <div class="library-card-icon">
+              <i class="fas fa-folder-open"></i>
+            </div>
+            <div class="library-card-content">
+              <h3>Service des archives</h3>
+              <a href="https://www.college-de-france.fr/fr/bibliotheque-archives/service-des-archives" target="_blank" rel="noopener noreferrer">
+                En savoir plus <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="library-card">
+            <div class="library-card-icon">
+              <i class="fas fa-landmark-dome"></i>
+            </div>
+            <div class="library-card-content">
+              <h3>Collections muséales</h3>
+              <a href="https://www.college-de-france.fr/fr/bibliotheque-archives/collections-museales" target="_blank" rel="noopener noreferrer">
+                En savoir plus <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCUMENTS SECTION -->
+    <section class="documents-section">
+      <h2>Documents</h2>
+      <div class="documents-grid">
+        <div class="document-item">
+          <div class="document-item-icon">
+            <i class="fas fa-book-reader"></i>
+          </div>
+          <div class="document-item-content">
+            <h3>Guide du lecteur</h3>
+            <a href="https://www.college-de-france.fr/sites/default/files/media/document/2025-06/Guide_du_lecteur_College_de_France_final.pdf" target="_blank" rel="noopener noreferrer">
+              Télécharger le PDF <i class="fas fa-download"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="document-item">
+          <div class="document-item-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <div class="document-item-content">
+            <h3>Règlement</h3>
+            <a href="https://www.college-de-france.fr/sites/default/files/media/document/2023-09/R%C3%A8glement%20des%20biblioth%C3%A8ques%20et%20archives_01-09-2023.pdf" target="_blank" rel="noopener noreferrer">
+              Télécharger le PDF <i class="fas fa-download"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="document-item">
+          <div class="document-item-icon">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <div class="document-item-content">
+            <h3>Politique documentaire</h3>
+            <a href="https://www.college-de-france.fr/sites/default/files/documents/direction-reseaux-et-partenariats-documentaires/UPL2727193163176381979_2018___Politique_documentaire_des_biblioth__ques_et_archives_du_Coll__ge_de_France.pdf" target="_blank" rel="noopener noreferrer">
+              Télécharger le PDF <i class="fas fa-download"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">Politique de confidentialité</a>
+      <a href="/accessibility-statement.html" target="_blank" rel="noopener noreferrer">Accessibilité</a>
+      <a href="/terms-of-use.html" target="_blank" rel="noopener noreferrer">Mentions légales</a>
+    </div>
+    <p>&copy; 2025 Collège de France - Bibliothèques et Archives</p>
+  </footer>
+</body>
+</html>

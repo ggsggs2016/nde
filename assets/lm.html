@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Mobile - Collège de France</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #2872ba;
+      --primary-dark: #1e5a94;
+      --secondary: #3f608a;
+      --text: #1a1c1f;
+      --text-light: #555;
+      --bg-light: #f8f9fa;
+      --border: #e0e0e0;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Lato", sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: var(--text);
+      background: #fff;
+    }
+
+    /* HEADER */
+header {
+  background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), 
+                    url('homepage_background.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 320px;
+  position: relative; /* IMPORTANT */
+  color: #fff;
+
+  display: flex;
+  align-items: center;      /* centre vertical */
+  justify-content: center;  /* centre horizontal */
+}
+
+/* Contenu centré uniquement */
+.header-content {
+  width: 100%;
+  text-align: center;
+}
+
+/* Logo ancré au header */
+.header-logo {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+
+  height: 130px;   /* plus grand */
+  width: auto;
+
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+  z-index: 10;
+}
+
+/* Titre parfaitement centré */
+header h1 {
+  font-size: 3.2rem;
+  margin: 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+    header .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      font-weight: 400;
+    }
+
+    /* MAIN CONTAINER */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+  /* INTRO SECTION */
+.intro-section {
+  text-align: left;              /* ← alignement à gauche */
+  max-width: 900px;              /* un peu plus large */
+  margin: 0 auto 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.intro-section h2 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  text-align: center;              /* important */
+}
+
+.intro-section p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  text-align: left;              /* important */
+}
+
+
+    /* HERO SECTION - APP SHOWCASE */
+    .hero-app-section {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-app-content h2 {
+      font-size: 2rem;
+      margin: 0 0 1rem 0;
+      color: #fff;
+    }
+
+    .hero-app-content p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.95;
+      line-height: 1.7;
+    }
+
+    .hero-app-visual {
+      text-align: center;
+    }
+
+    .phone-mockup {
+      width: 200px;
+      height: 400px;
+      background: #fff;
+      border-radius: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .phone-mockup::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 5px;
+      background: #333;
+      border-radius: 3px;
+    }
+
+    .phone-mockup i {
+      font-size: 4rem;
+      color: var(--primary);
+    }
+
+    /* ACTIVATION STEPS */
+    .steps-section {
+      margin-bottom: 4rem;
+    }
+
+    .steps-section h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .step-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 2px 12px var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      position: relative;
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .step-card h3 {
+      font-size: 1.2rem;
+      margin: 0 0 1rem 0;
+      color: var(--text);
+    }
+
+    .step-card p {
+      color: var(--text-light);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* FEATURES SECTION */
+    .features-section {
+      background: var(--bg-light);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .features-section h2 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-item {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-item-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+
+    .feature-item-content {
+      flex: 1;
+    }
+
+    .feature-item-content h3 {
+      font-size: 1.05rem;
+      margin: 0 0 0.3rem 0;
+      color: var(--text);
+    }
+
+    .feature-item-content p {
+      margin: 0;
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* QR CODE SECTION */
+    .qr-section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 2px 12px var(--shadow);
+      text-align: center;
+      margin-bottom: 3rem;
+      border-top: 4px solid var(--primary);
+    }
+
+    .qr-section h2 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .qr-section p {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .qr-code-placeholder {
+      width: 200px;
+      height: 200px;
+      background: var(--bg-light);
+      border: 3px dashed var(--primary);
+      border-radius: 12px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--primary);
+    }
+
+    /* CTA BUTTONS */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .cta-button:hover {
+      background: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    .cta-button.secondary {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .cta-button.secondary:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #2c2c2c;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 0.8rem;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    footer a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    footer p {
+      margin: 0.8rem 0;
+    }
+
+    footer .footer-links {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        min-height: 250px;
+        padding: 1rem;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+        padding: 0 1rem;
+      }
+
+      .header-logo {
+        height: 90px;
+        top: 15px;
+        left: 15px;
+      }
+
+      main {
+        padding: 2rem 1rem;
+      }
+
+      .intro-section {
+        margin: 0 auto 2rem;
+        padding-bottom: 1.5rem;
+      }
+
+      .intro-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .intro-section p {
+        font-size: 1rem;
+      }
+
+      .hero-app-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 1.5rem;
+      }
+
+      .hero-app-content h2 {
+        font-size: 1.6rem;
+      }
+
+      .hero-app-content p {
+        font-size: 1rem;
+      }
+
+      .phone-mockup {
+        width: 180px;
+        height: 360px;
+      }
+
+      .phone-mockup i {
+        font-size: 3.5rem;
+      }
+
+      .steps-section {
+        margin-bottom: 3rem;
+      }
+
+      .steps-section h2 {
+        font-size: 1.6rem;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .step-card {
+        padding: 1.5rem;
+      }
+
+      .features-section {
+        padding: 2rem;
+      }
+
+      .features-section h2 {
+        font-size: 1.6rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .feature-item {
+        padding: 1.3rem;
+      }
+
+      .qr-section {
+        padding: 2rem;
+      }
+
+      .qr-section h2 {
+        font-size: 1.6rem;
+      }
+
+      .qr-section p {
+        font-size: 1rem;
+      }
+
+      footer {
+        padding: 1.5rem 1rem;
+      }
+
+      footer .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      footer a {
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        min-height: 200px;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+        padding: 0 0.5rem;
+      }
+
+      .header-logo {
+        height: 70px;
+        top: 10px;
+        left: 10px;
+      }
+
+      main {
+        padding: 1.5rem 0.75rem;
+      }
+
+      .intro-section {
+        padding-bottom: 1rem;
+      }
+
+      .intro-section h2 {
+        font-size: 1.3rem;
+      }
+
+      .intro-section p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .hero-app-section {
+        padding: 1.5rem 1rem;
+        gap: 1.5rem;
+      }
+
+      .hero-app-content h2 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .hero-app-content h2 i {
+        font-size: 1.2rem;
+      }
+
+      .hero-app-content p {
+        font-size: 0.95rem;
+        margin-bottom: 1.2rem;
+        line-height: 1.6;
+      }
+
+      .cta-button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .phone-mockup {
+        width: 160px;
+        height: 320px;
+      }
+
+      .phone-mockup::before {
+        width: 50px;
+        height: 4px;
+        top: 12px;
+      }
+
+      .phone-mockup i {
+        font-size: 3rem;
+      }
+
+      .steps-section {
+        margin-bottom: 2rem;
+      }
+
+      .steps-section h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .steps-grid {
+        gap: 1rem;
+      }
+
+      .step-card {
+        padding: 1.2rem;
+      }
+
+      .step-number {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+
+      .step-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .step-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .features-section {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .features-section h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .features-grid {
+        gap: 1rem;
+      }
+
+      .feature-item {
+        padding: 1.2rem;
+        gap: 0.8rem;
+      }
+
+      .feature-item-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+      }
+
+      .feature-item-content h3 {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .feature-item-content p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .qr-section {
+        padding: 1.5rem;
+      }
+
+      .qr-section h2 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .qr-section h2 i {
+        font-size: 1.2rem;
+      }
+
+      .qr-section p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .qr-code-placeholder {
+        width: 180px;
+        height: 180px;
+        font-size: 2.5rem;
+        margin-bottom: 1.2rem;
+      }
+
+      footer {
+        margin-top: 2rem;
+        padding: 1.2rem 0.75rem;
+      }
+
+      footer p {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Très petits écrans */
+    @media (max-width: 360px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .header-logo {
+        height: 60px;
+      }
+
+      .intro-section h2,
+      .steps-section h2,
+      .features-section h2,
+      .qr-section h2 {
+        font-size: 1.2rem;
+      }
+
+      .hero-app-content h2 {
+        font-size: 1.25rem;
+      }
+
+      .phone-mockup {
+        width: 140px;
+        height: 280px;
+      }
+
+      .phone-mockup i {
+        font-size: 2.5rem;
+      }
+
+      .step-card,
+      .feature-item {
+        padding: 1rem;
+      }
+
+      .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+
+      .qr-code-placeholder {
+        width: 160px;
+        height: 160px;
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <img src="library-logo.png" alt="Logo du Collège de France" class="header-logo">
+      <h1>Library Mobile</h1>
+          </div>
+  </header>
+
+  <main>
+    <!-- INTRO -->
+    <section class="intro-section">
+      <h2>Emportez-nous partout avec vous !</h2>
+      <p>Très simple d'utilisation, Library Mobile vous permet d'accéder à l'ensemble de nos services, de retrouver des informations utiles, de suivre notre actualité et notre agenda culturel directement depuis votre smartphone.</p>
+    </section>
+
+    <!-- HERO APP SECTION -->
+    <section class="hero-app-section">
+      <div class="hero-app-content">
+        <h2><i class="fas fa-mobile-alt"></i> Une application complète</h2>
+        <p>Accédez à OMNIA, gérez votre compte lecteur, consultez les nouvelles acquisitions, réservez vos places et restez informé de toute l'actualité des bibliothèques du Collège de France.</p>
+        <a href="https://knowledge.exlibrisgroup.com/campusM/Library_Mobile/Product_Documentation/Patron_Access_to_the_Library_Mobile_App/Library_Mobile_Universal_App" target="_blank" rel="noopener noreferrer" class="cta-button secondary">
+          <i class="fas fa-qrcode"></i> Scanner le QR code
+        </a>
+      </div>
+      <div class="hero-app-visual">
+        <div class="phone-mockup">
+          <i class="fas fa-book-reader"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVATION STEPS -->
+    <section class="steps-section">
+      <h2>Comment l'activer ?</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Scannez le QR code</h3>
+          <p>Dirigez l'appareil photo de votre smartphone vers le QR code pour télécharger l'application</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Téléchargez l'application</h3>
+          <p>Installez Library Mobile gratuitement sur votre smartphone (iOS ou Android)</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Sélectionnez votre institution</h3>
+          <p>Tapez « Collège de France » et sélectionnez notre institution dans la liste</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Connectez-vous</h3>
+          <p>Utilisez vos codes d'accès Omnia pour vous connecter à tous nos services</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section">
+      <h2>Toutes nos fonctionnalités à portée de main</h2>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="feature-item-content">
+            <h3>Catalogue OMNIA</h3>
+            <p>Accédez au catalogue complet des bibliothèques et archives</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <i class="fas fa-id-card"></i>
+          </div>
+          <div class="feature-item-content">
+            <h3>Compte lecteur</h3>
+            <p>Gérez vos prêts, réservations et consultez votre carte en temps réel</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="feature-item-content">
+            <h3>Nouvelles acquisitions</h3>
+            <p>Découvrez les derniers ouvrages des 12 bibliothèques du Collège</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <div class="feature-item-content">
+            <h3>Actualités & Événements</h3>
+            <p>Suivez les informations pratiques et événements culturels</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <i class="fas fa-play-circle"></i>
+          </div>
+          <div class="feature-item-content">
+            <h3>Cours en ligne</h3>
+            <p>Accédez aux actualités et cours du Collège de France</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <i class="fas fa-images"></i>
+          </div>
+          <div class="feature-item-content">
+            <h3>Bibliothèque numérique Salamandre</h3>
+            <p>Consultez nos collections numérisées et la photothèque</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <i class="fas fa-blog"></i>
+          </div>
+          <div class="feature-item-content">
+            <h3>Blog Colligere</h3>
+            <p>Lisez les derniers billets du carnet de recherche</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <div class="feature-item-content">
+            <h3>Réservation Affluences</h3>
+            <p>Réservez directement vos places et espaces de travail</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <i class="fas fa-poll"></i>
+          </div>
+          <div class="feature-item-content">
+            <h3>Sondages</h3>
+            <p>Participez aux enquêtes pour améliorer nos services</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QR CODE SECTION -->
+    <section class="qr-section">
+      <h2><i class="fas fa-qrcode"></i> Téléchargez l'application maintenant</h2>
+      <p>Scannez ce QR code avec votre smartphone pour installer Library Mobile</p>
+      <div class="qr-code-placeholder">
+        <i class="fas fa-qrcode"></i>
+      </div>
+      <a href="https://knowledge.exlibrisgroup.com/campusM/Library_Mobile/Product_Documentation/Patron_Access_to_the_Library_Mobile_App/Library_Mobile_Universal_App" target="_blank" rel="noopener noreferrer" class="cta-button">
+        Accéder au QR code <i class="fas fa-arrow-right"></i>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">Politique de confidentialité</a>
+      <a href="/accessibility-statement.html" target="_blank" rel="noopener noreferrer">Accessibilité</a>
+      <a href="/terms-of-use.html" target="_blank" rel="noopener noreferrer">Mentions légales</a>
+    </div>
+    <p>&copy; 2025 Collège de France - Bibliothèques et Archives</p>
+  </footer>
+</body>
+</html>
